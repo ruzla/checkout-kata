@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Checkout.Kata
 {
-    internal class Checkout
+    public class Checkout
     {
     }
 }
