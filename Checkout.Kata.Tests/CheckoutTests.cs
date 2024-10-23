@@ -25,5 +25,22 @@ namespace Checkout.Kata.Tests
             //assert
             Assert.That(scannedItems, Is.EqualTo(expectedScannedItems));
         }
+
+
+        [Test]
+        public void Scan_MultipleItem_ItemsAreScannedCorrectly()
+        {
+            //arrange
+            var expectedScannedItems = new List<string> { "A", "B", "C" };
+
+            //act
+            _checkout.Scan("A");
+            _checkout.Scan("B");
+            _checkout.Scan("C");
+            var scannedItems = _checkout.items;
+
+            //assert
+            Assert.That(scannedItems, Is.EqualTo(expectedScannedItems));
+        }
     }
 }
