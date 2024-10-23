@@ -23,7 +23,7 @@ namespace Checkout.Kata.Tests
             var scannedItems = _checkout.items;
 
             //assert
-            Assert.AreEqual(expectedScannedItems, scannedItems);
+            Assert.That(scannedItems, Is.EqualTo(expectedScannedItems));
         }
     }
 }

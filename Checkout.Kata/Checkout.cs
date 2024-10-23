@@ -8,5 +8,11 @@ namespace Checkout.Kata
 {
     public class Checkout
     {
+        public List<string> items = new List<string>();
+
+        public void Scan(string item)
+        {
+            items.Add(item);
+        }
     }
 }
