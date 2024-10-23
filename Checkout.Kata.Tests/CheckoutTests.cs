@@ -28,7 +28,7 @@ namespace Checkout.Kata.Tests
 
 
         [Test]
-        public void Scan_MultipleItem_ItemsAreScannedCorrectly()
+        public void Scan_MultipleItems_ItemsAreScannedCorrectly()
         {
             //arrange
             var expectedScannedItems = new List<string> { "A", "B", "C" };
@@ -41,6 +41,27 @@ namespace Checkout.Kata.Tests
 
             //assert
             Assert.That(scannedItems, Is.EqualTo(expectedScannedItems));
+        }
+
+        [Test]
+        public void GetTotalOfNoOffersScannedItems_TotalIsCalculatedCorrectly()
+        {
+            //arrange
+            var priceList = new List<Item>
+            {
+                new Item { sku = "C", unitPrice = 20, specialQuantity = 0, specialDiscount = 0 },
+                new Item { sku = "D", unitPrice = 15, specialQuantity = 0, specialDiscount = 0 }
+            };
+            var expectedTotal = 55;
+
+            //act
+            _checkout.Scan("C");
+            _checkout.Scan("D");
+            _checkout.Scan("C");
+            var total = _checkout.GetTotalPrice(priceList);
+
+            //assert
+            Assert.That(total, Is.EqualTo(expectedTotal));
         }
     }
 }

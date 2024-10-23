@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace Checkout.Kata
 {
-    public class Checkout
+    public class Checkout : ICheckout
     {
         public List<string> items = new List<string>();
 
         public void Scan(string item)
         {
             items.Add(item);
+        }
+
+        public int GetTotalPrice()
+        {
+            throw new NotImplementedException();
         }
     }
 }
