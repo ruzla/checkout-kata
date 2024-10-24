@@ -24,7 +24,13 @@ namespace Checkout.Kata
             {
                 int count = items.Count(i => i == item.sku);
 
-                if (count > 0)
+                if (item.specialQuantity > 0 && count >= item.specialQuantity)
+                {
+                    int discountedItems = count / item.specialQuantity;
+                    int remainder = count % item.specialQuantity;
+                    total += discountedItems * item.specialDiscount + remainder * item.unitPrice;
+                }
+                else
                 {
                     total += count * item.unitPrice;
                 }
