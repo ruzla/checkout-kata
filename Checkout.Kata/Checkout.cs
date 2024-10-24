@@ -18,7 +18,19 @@ namespace Checkout.Kata
 
         public int GetTotalPrice(List<Item> priceList)
         {
-            throw new NotImplementedException();
+            int total = 0;
+
+            foreach (var item in priceList)
+            {
+                int count = items.Count(i => i == item.sku);
+
+                if (count > 0)
+                {
+                    total += count * item.unitPrice;
+                }
+            }
+
+            return total;
         }
     }
 }

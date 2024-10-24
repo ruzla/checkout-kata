@@ -50,8 +50,8 @@ namespace Checkout.Kata.Tests
             //arrange
             var priceList = new List<Item>
             {
-                new Item { sku = "C", unitPrice = 20, specialQuantity = 0, specialDiscount = 0 },
-                new Item { sku = "D", unitPrice = 15, specialQuantity = 0, specialDiscount = 0 }
+                new Item { sku = "C", unitPrice = 20 },
+                new Item { sku = "D", unitPrice = 15 }
             };
             var expectedTotal = 55;
 
