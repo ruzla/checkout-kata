@@ -1,9 +1,4 @@
 ﻿using Checkout.Kata.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Checkout.Kata
 {
@@ -26,9 +21,7 @@ namespace Checkout.Kata
 
                 if (item.specialQuantity > 0 && count >= item.specialQuantity)
                 {
-                    int discountedItems = count / item.specialQuantity;
-                    int remainder = count % item.specialQuantity;
-                    total += discountedItems * item.specialDiscount + remainder * item.unitPrice;
+                    total += CalculateDiscountedPrice(item, count);
                 }
                 else
                 {
@@ -37,6 +30,13 @@ namespace Checkout.Kata
             }
 
             return total;
+        }
+
+        private int CalculateDiscountedPrice(Item item, int count)
+        {
+            int discountedItems = count / item.specialQuantity;
+            int remainder = count % item.specialQuantity;
+            return discountedItems * item.specialDiscount + remainder * item.unitPrice;
         }
     }
 }
