@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Checkout.Kata.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace Checkout.Kata
     public interface ICheckout
     {
         void Scan(string item);
-        int GetTotalPrice();
+        int GetTotalPrice(List<Item> priceList);
     }
 }

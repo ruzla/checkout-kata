@@ -1,4 +1,5 @@
 using Checkout.Kata;
+using Checkout.Kata.Models;
 
 namespace Checkout.Kata.Tests
 {
